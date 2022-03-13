@@ -1,0 +1,43 @@
+.location-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    font-size: 14px;
+    .col-6{
+        padding: 0!important;
+    }
+    .calendar-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+    }
+    .date-content{
+        text-align: right;
+        color: #705f5f;
+        font-weight: bold;
+    }
+    .search-content{
+        margin-left: 5px;
+        text-align: left;
+        input{
+            padding: 1px 3px;
+            border: none;
+            border-radius: 2px;
+            width: 100%;
+            color: #705f5f;
+        }
+        .col-8, .col-4{
+            padding: 0!important;
+        }
+        button{
+            border-radius: 2px;
+            font-size: 10px;
+            padding: 1px 3px;
+            height: 26px;
+            width: 26px;
+        }
+    }
+}

@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import EffectComponent from "./components/effect/effect.vue";
 import InforComponent from "./components/info/infomation.vue";
 import LocationSearch from "./components/location/location-search.vue";
@@ -30,6 +31,12 @@ export default {
     LocationSearch,
     TimeComponent,
   },
+  methods: {
+    ...mapActions(['fetchWeatherData'])
+  },
+  mounted() {
+    this.fetchWeatherData();
+  }
 };
 </script>
 

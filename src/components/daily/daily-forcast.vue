@@ -44,6 +44,9 @@ export default {
   computed: {
     ...mapGetters(["todayData", "afterTomorowData", "tomorowData"]),
   },
+  mounted(){
+    this.currentData = this.todayData;
+  }
 };
 </script>
 

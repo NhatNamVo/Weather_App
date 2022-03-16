@@ -1,6 +1,9 @@
 <template>
   <div>
       <div>
+        <h1>{{currentLocation}}</h1>
+      </div>
+      <div>
           <span>{{currentWeather.weather[0].description}}</span>
       </div>
       <div>
@@ -17,7 +20,7 @@ import { mapGetters } from "vuex";
 export default {
   name: "EffectComponent",
   computed: {
-    ...mapGetters(["currentWeather"]),
+    ...mapGetters(["currentWeather","currentLocation"]),
   },
 };
 </script>

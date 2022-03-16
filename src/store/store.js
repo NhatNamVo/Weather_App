@@ -12,6 +12,7 @@ const store = new Vuex.Store({
     currentDay: null,
     lon: 106.6667,
     lat: 10.75,
+    location: "Ho chi minh",
     search: "",
     isError: false,
     weatherData: {},
@@ -52,10 +53,15 @@ const store = new Vuex.Store({
       });
       return data;
     },
+    currentLocation(state){
+      return state.location;
+    }
+
   },
   mutations: {
     ["SET_SEARCH"](state, search) {
       state.search = search.toLowerCase();
+      state.location = search.toLowerCase();
     },
     ["SET_LOCATION_DATA"](state, data) {
       if (data?.lon) {

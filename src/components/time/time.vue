@@ -15,6 +15,7 @@
 
 <script>
     import moment from 'moment';
+import { mapActions } from 'vuex';
     export default {
         name: 'TimeComponent',
 
@@ -24,18 +25,25 @@
                 setTime: null,
                 currentTime: null,
                 currentDate: null,
+                currentHour: null,
                 isOpenCalendar: false,
                 currentCalendarPosition: 0,
             }
         },
         methods:{
+            ...mapActions(['fetchWeatherData']),
             resizeHeight(event){
                 const {outerWidth} = event.target;
                 const eleWidth = 0.5*outerWidth;
                 this.width = eleWidth;
             },
             activeTime() {
-                const time = moment(new Date()).format("hh:mm:ss");
+                const time = moment(new Date()).format("HH:mm:ss");
+                const hour = new Date().getHours();
+                if(hour !== this.currentHour){
+                    this.currentHour = hour;
+                    this.fetchWeatherData;
+                }
                 this.currentTime = time;
             },
             handleShowCalendar(e) {

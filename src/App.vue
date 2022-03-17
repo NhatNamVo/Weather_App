@@ -5,13 +5,11 @@
     </section>
     <section class="effect">
       <EffectComponent />
-      <section class="time">
-        <TimeComponent />
-      </section>
-     
+      
+      <InforComponent />
     </section>
      <section class="info">
-        <InforComponent />
+        <DailyForecast />
       </section>
   </div>
 </template>
@@ -21,14 +19,14 @@ import { mapActions } from 'vuex';
 import EffectComponent from "./components/effect/effect.vue";
 import InforComponent from "./components/info/infomation.vue";
 import LocationSearch from "./components/location/location-search.vue";
-import TimeComponent from "./components/time/time.vue";
+import DailyForecast from "./components/daily/daily-forecast.vue";
 export default {
   name: "App",
   components: {
     EffectComponent,
     InforComponent,
     LocationSearch,
-    TimeComponent,
+    DailyForecast
   },
   methods: {
     ...mapActions(['fetchWeatherData'])
@@ -47,20 +45,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   // height: 100vh;
-  background-color: #a2cff3;
+  background-color: #000;
   overflow: hidden;
   .effect{
-    position: relative;
-    z-index: 0;
-    height: 250px;
-    background-color: #9bfffa;
-  }
-  .time{
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 100%;
-    transform: translate(-50%, 50%);
+    background-color: #15C0F6;
   }
   .location{
     position: absolute;
@@ -68,10 +56,6 @@ export default {
     width: 100%;
     top: 20px;
     margin: auto;
-  }
-  .info{
-    position: relative;
-    z-index: 5;
   }
   button{
     border: none;

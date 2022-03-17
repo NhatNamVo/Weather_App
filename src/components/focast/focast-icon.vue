@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img :src="focastIconDisplay" alt=""/>
+        <img :src="focastIconDisplay" alt="" :width="size" :height="size"/>
     </div>
 </template>
 
@@ -14,7 +14,7 @@ import rainy from '../../assets/forecast-icon/rainy.png';
 import {ConvertHour} from '../../helper/utils/converDate';
     export default {
         name: "FocastIcon",
-        props: ['dataFocast','sunRise','sunSet'],
+        props: ['dataFocast','sunRise','sunSet', 'size'],
         data() {
             return {
                 currentIcon: '',

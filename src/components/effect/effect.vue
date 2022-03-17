@@ -1,15 +1,20 @@
 <template>
-  <div class="info-container"  v-if="currentWeather" :style="{backgroundImage: `url(${focastIconDisplay})`}">
+  <div class="info-container"  v-if="currentWeather">
     <div class="info-content">
       <div>
-        <h6>{{location}}</h6>
+        <h4>{{location}}</h4>
+        <TimeComponent />
+      </div>
+      <div>
+        <FocastIcon :dataFocast="currentWeather" :size="120" :sunRise="currentWeather.sunrise" :sunSet="currentWeather.sunset"/>
+      </div>
+      <div class="temp">
+          {{Math.round(currentWeather.temp)}}<sup>o</sup>C
       </div>
       <div>
           <span>{{currentWeather.weather[0].description}}</span>
       </div>
-      <div>
-          {{Math.round(currentWeather.temp)}}<sup>o</sup>C
-      </div>
+      
   </div>
   </div>
 </template>
@@ -25,8 +30,14 @@ import cloudyNightClear from '../../assets/background/clearly.jpg';
 import rainyNight from '../../assets/background/rainyNight.jpg';
 import rainyDay from '../../assets/background/rainyDay.jpg';
 import {ConvertHour} from '../../helper/utils/converDate';
+import TimeComponent from "../time/time.vue";
+import FocastIcon from "../focast/focast-icon.vue";
 export default {
   name: "EffectComponent",
+  components: {
+    TimeComponent,
+    FocastIcon
+  },
   computed: {
     ...mapGetters(["currentWeather","todayData"]),
     ...mapState(['location']),

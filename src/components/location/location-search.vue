@@ -46,7 +46,6 @@
 // import CalendarComponent from "../calendar/calendar.vue";
 import moment from "moment";
 import { mapActions, mapMutations, mapGetters } from "vuex";
-
 export default {
   name: "LocationSearch",
   components: {
@@ -96,7 +95,7 @@ export default {
       "tomorowData",
     ]),
   },
-  beforeMount() {
+  mounted() {
     this.currentDate = moment(new Date()).format("DD/MM/YYYY");
     this.setCurrentDay(new Date().getDate());
   },

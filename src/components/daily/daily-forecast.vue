@@ -1,35 +1,41 @@
 <template>
-  <div v-if="currentData">
-    <div>
+  <div class="forecast-daily-container" v-if="currentData">
+    <div class="forecast-title">
       Hôm nay
     </div>
     <VueSlickCarousel v-bind="settings" v-if="todayData.length >0">
       <template v-for="(item, idx) in todayData">
-        <div :key="idx">
-          <FocastIcon :dataFocast="item" :sunRise="currentWeather.sunrise" :sunSet="currentWeather.sunset"/>
-          <p>{{ new Date(item.dt * 1000).getHours() }}:00</p>
+        <div class="forecast-item" :key="idx">
+          <div class="forecast-item-content" :class="{active: idx === 0}">
+            <FocastIcon :size="50" :dataFocast="item" :sunRise="currentWeather.sunrise" :sunSet="currentWeather.sunset"/>
+            <p>{{ new Date(item.dt * 1000).getHours() }}:00</p>
+          </div>
         </div>
       </template>
     </VueSlickCarousel>
-    <div>
+    <div class="forecast-title">
       Ngày mai
     </div>
     <VueSlickCarousel v-bind="settings" v-if="tomorowData.length >0">
       <template v-for="(item, idx) in tomorowData">
-        <div :key="idx">
-          <FocastIcon :dataFocast="item" :sunRise="currentWeather.sunrise" :sunSet="currentWeather.sunset"/>
-          <p>{{ new Date(item.dt * 1000).getHours() }}:00</p>
+        <div class="forecast-item" :key="idx">
+          <div class="forecast-item-content">
+            <FocastIcon :size="50" :dataFocast="item" :sunRise="currentWeather.sunrise" :sunSet="currentWeather.sunset"/>
+            <p>{{ new Date(item.dt * 1000).getHours() }}:00</p>
+          </div>
         </div>
       </template>
     </VueSlickCarousel>
-    <div>
+    <div class="forecast-title">
       Ngày kia
     </div>
     <VueSlickCarousel v-bind="settings" v-if="afterTomorowData.length >0">
       <template v-for="(item, idx) in afterTomorowData">
-        <div :key="idx">
-          <FocastIcon :dataFocast="item" :sunRise="currentWeather.sunrise" :sunSet="currentWeather.sunset"/>
-          <p>{{ new Date(item.dt * 1000).getHours() }}:00</p>
+        <div class="forecast-item" :key="idx">
+          <div class="forecast-item-content">
+            <FocastIcon :size="50" :dataFocast="item" :sunRise="currentWeather.sunrise" :sunSet="currentWeather.sunset"/>
+            <p>{{ new Date(item.dt * 1000).getHours() }}:00</p>
+          </div>
         </div>
       </template>
     </VueSlickCarousel>
@@ -42,7 +48,7 @@ import FocastIcon from '../focast/focast-icon.vue';
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 export default {
-  name: "DailyForcast",
+  name: "DailyForecast",
   components: {VueSlickCarousel, FocastIcon},
   data() {
     return {
@@ -51,16 +57,17 @@ export default {
       settings: {
         dots: false,
         infinite: false,
+        arrows: false,
         speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: 12,
+        slidesToScroll: 6,
         initialSlide: 0,
         responsive: [
           {
             breakpoint: 1024,
             settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
+              slidesToShow: 10,
+              slidesToScroll: 6,
               infinite: true,
               dots: true,
             },
@@ -68,8 +75,8 @@ export default {
           {
             breakpoint: 600,
             settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
+              slidesToShow: 4,
+              slidesToScroll: 4,
               initialSlide: 2,
             },
           },
@@ -132,7 +139,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.active {
-  background-color: #f76161;
-}
+@import './daily-forecast.scss';
 </style>

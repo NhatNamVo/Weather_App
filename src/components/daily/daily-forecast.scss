@@ -1,0 +1,26 @@
+.forecast-daily-container{
+    padding: 20px 15px;
+    .forecast-title{
+        color: #fff;
+        font-weight: bold;
+        text-align: left;
+    }
+    .forecast-item{
+        padding: 20px 10px;
+        color: #fff;
+        p{
+            margin: 0;
+        }
+        .forecast-item-content{
+            border: 1px solid #ccc;
+            padding: 15px 0;
+            border-radius: 15px;
+        }
+        .forecast-item-content.active{
+            background-color: #15C0F6;
+            border: none;
+            box-shadow: 0 2px 8px 0 #15C0F6;
+        }
+    }
+    
+}

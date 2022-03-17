@@ -16,13 +16,22 @@
     }
     .date-content{
         text-align: right;
-        color: #705f5f;
+        color: #fff;
         font-weight: bold;
+        .date-item{
+            background-color: #cad5e1c5;
+            width: fit-content;
+            margin-left: auto;
+            padding: 1px 3px;
+            border-radius: 2px;
+        }
     }
     .search-content{
         margin-left: 5px;
         text-align: left;
         input{
+            font-size: 12px;
+            height: 26px;
             padding: 1px 3px;
             border: none;
             border-radius: 2px;

@@ -1,5 +1,5 @@
 <template>
-    <div ref="timeContainer" class="time-container" :style="{height: width + 'px'}">
+    <div ref="timeContainer" class="time-container" :style="{height: width + 'px', backgroundImage: `url(${require('../../assets/background/vietnam.jpg')}`}">
         <div class="time-content">
             <p>
                 {{currentTime}}
@@ -16,6 +16,7 @@
 <script>
     import moment from 'moment';
 import { mapActions } from 'vuex';
+// import vietnamBG from '../../assets/background/vietnam.jpg';
     export default {
         name: 'TimeComponent',
 
@@ -42,7 +43,7 @@ import { mapActions } from 'vuex';
                 const hour = new Date().getHours();
                 if(hour !== this.currentHour){
                     this.currentHour = hour;
-                    this.fetchWeatherData;
+                    this.fetchWeatherData();
                 }
                 this.currentTime = time;
             },
@@ -83,6 +84,7 @@ import { mapActions } from 'vuex';
         created() {
             this.currentTime = moment(new Date()).format("hh:mm:ss");
             this.currentDate = moment(new Date()).format("DD/MM/YYYY");
+            this.currentHour = new Date().getHours();
             this.width = window.outerWidth*0.5;
         },
         mounted() {

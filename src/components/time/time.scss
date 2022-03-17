@@ -7,4 +7,11 @@
     position: relative;
     z-index: 8;
     box-shadow: 0 4px 10px 0 #ccc;
+    background-position: center;
+    background-size: cover;
+    .time-content{
+        color: #ffffff;
+        font-weight: bold;
+        padding: 38% 0;
+    }
 }

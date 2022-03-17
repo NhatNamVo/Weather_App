@@ -13,7 +13,6 @@
      <section class="info">
         <InforComponent />
       </section>
-    
   </div>
 </template>
 

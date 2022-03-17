@@ -1,0 +1,22 @@
+.info-container{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    .info-content{
+        width: 40%;
+        position : absolute;
+        top: 50px;
+        left: 15px;
+        border-radius: 10px;
+        padding: 5px;
+        background-color: #cad5e1c5;
+        color: #fff;
+        font-weight: bold;
+        color: #fff;
+        font-size: 12px;
+        h6{
+            font-weight: bold;
+        }
+    }
+}   

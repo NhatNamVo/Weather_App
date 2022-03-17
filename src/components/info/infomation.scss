@@ -1,8 +1,13 @@
 .info-container{
-    width: 90%;
-    min-height: 20vh;
+    width: 100%;
     margin: auto;
     background-color: #fff;
     box-shadow: 0 4px 8px 0 #ccc;
     padding: 15px;
+    position: relative;
+    top: 0;
+    left: 0;
+    .info-content{
+        text-align: left;
+    }
 }

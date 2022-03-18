@@ -7,7 +7,7 @@
       <template v-for="(item, idx) in todayData">
         <div class="forecast-item" :key="idx">
           <div class="forecast-item-content" :class="{active: idx === 0}">
-            <FocastIcon :size="50" :dataFocast="item" :sunRise="currentWeather.sunrise" :sunSet="currentWeather.sunset"/>
+            <ForecastIcon :size="50" :dataForecast="item" :sunRise="currentWeather.sunrise" :sunSet="currentWeather.sunset"/>
             <p>{{ new Date(item.dt * 1000).getHours() }}:00</p>
           </div>
         </div>
@@ -20,7 +20,7 @@
       <template v-for="(item, idx) in tomorowData">
         <div class="forecast-item" :key="idx">
           <div class="forecast-item-content">
-            <FocastIcon :size="50" :dataFocast="item" :sunRise="currentWeather.sunrise" :sunSet="currentWeather.sunset"/>
+            <ForecastIcon :size="50" :dataForecast="item" :sunRise="currentWeather.sunrise" :sunSet="currentWeather.sunset"/>
             <p>{{ new Date(item.dt * 1000).getHours() }}:00</p>
           </div>
         </div>
@@ -33,7 +33,7 @@
       <template v-for="(item, idx) in afterTomorowData">
         <div class="forecast-item" :key="idx">
           <div class="forecast-item-content">
-            <FocastIcon :size="50" :dataFocast="item" :sunRise="currentWeather.sunrise" :sunSet="currentWeather.sunset"/>
+            <ForecastIcon :size="50" :dataForecast="item" :sunRise="currentWeather.sunrise" :sunSet="currentWeather.sunset"/>
             <p>{{ new Date(item.dt * 1000).getHours() }}:00</p>
           </div>
         </div>
@@ -44,12 +44,11 @@
 <script>
 import { mapGetters, mapState } from "vuex";
 import VueSlickCarousel from 'vue-slick-carousel';
-import FocastIcon from '../focast/focast-icon.vue';
-import 'vue-slick-carousel/dist/vue-slick-carousel.css'
-import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+import ForecastIcon from '../forecast/forecast-icon.vue';
+
 export default {
   name: "DailyForecast",
-  components: {VueSlickCarousel, FocastIcon},
+  components: {VueSlickCarousel, ForecastIcon},
   data() {
     return {
       currentDate: 1,
@@ -59,25 +58,21 @@ export default {
         infinite: false,
         arrows: false,
         speed: 500,
-        slidesToShow: 12,
-        slidesToScroll: 6,
-        initialSlide: 0,
+        slidesToShow: 5,
+        slidesToScroll: 3,
         responsive: [
           {
-            breakpoint: 1024,
+            breakpoint: 1025,
             settings: {
-              slidesToShow: 10,
+              slidesToShow: 6,
               slidesToScroll: 6,
-              infinite: true,
-              dots: true,
             },
           },
           {
             breakpoint: 600,
             settings: {
-              slidesToShow: 4,
-              slidesToScroll: 4,
-              initialSlide: 2,
+              slidesToShow: 6,
+              slidesToScroll: 6,
             },
           },
           {

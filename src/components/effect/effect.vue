@@ -6,7 +6,7 @@
         <TimeComponent />
       </div>
       <div>
-        <FocastIcon :dataFocast="currentWeather" :size="120" :sunRise="currentWeather.sunrise" :sunSet="currentWeather.sunset"/>
+        <ForecastIcon :dataForecast="currentWeather" :size="120" :sunRise="currentWeather.sunrise" :sunSet="currentWeather.sunset"/>
       </div>
       <div class="temp">
           {{Math.round(currentWeather.temp)}}<sup>o</sup>C
@@ -31,12 +31,12 @@ import rainyNight from '../../assets/background/rainyNight.jpg';
 import rainyDay from '../../assets/background/rainyDay.jpg';
 import {ConvertHour} from '../../helper/utils/converDate';
 import TimeComponent from "../time/time.vue";
-import FocastIcon from "../focast/focast-icon.vue";
+import ForecastIcon from "../forecast/forecast-icon.vue";
 export default {
   name: "EffectComponent",
   components: {
     TimeComponent,
-    FocastIcon
+    ForecastIcon
   },
   computed: {
     ...mapGetters(["currentWeather","todayData"]),

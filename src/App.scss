@@ -1,0 +1,65 @@
+@import "./template/mixin";
+@import "./template/variables";
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    height: 100vh;
+    background-image: url("./assets/background/earth.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    .slick-track {
+        margin: auto;
+    }
+    .app-container {
+        max-width: 1200px;
+        margin: auto;
+        height: fit-content;
+        border-radius: 20px;
+        overflow: hidden;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-color: #00000085;
+        box-shadow: 0 1px 5px 0 #ffffff9a;
+    }
+    .effect {
+        background-color: #15c2f6cb;
+        height: 100%;
+    }
+    .location {
+        position: absolute;
+        z-index: 5;
+        width: 100%;
+        top: 20px;
+        margin: auto;
+    }
+    button {
+        border: none;
+        border-radius: 5px;
+    }
+}
+
+// responsive
+@include maxResponsive("extra-large-down") {
+    #app {
+        height: 100%;
+        .app-container {
+            width: 100%;
+            position: relative;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            transform: translate(0,0);
+            margin-top: 0;
+            background-color: #000000;
+            box-shadow: none;
+            border-radius: 0;
+        }
+    }
+}

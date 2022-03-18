@@ -5,17 +5,17 @@
       <VueSlickCarousel v-bind="settings">
         <div>
           <div><img src="../../assets/forecast-icon/atm.png" alt="" /></div>
-          <div>{{ currentWeather.pressure }} hPa</div>
+          <div>{{ currentWeather.pressure }} <small>hPa</small></div>
         </div>
         <div>
           <div>
             <img src="../../assets/forecast-icon/humidity.png" alt="" />
           </div>
-          <div>{{ currentWeather.humidity }} %</div>
+          <div>{{ currentWeather.humidity }} <small>%</small></div>
         </div>
         <div>
           <div><img src="../../assets/forecast-icon/windy.png" alt="" /></div>
-          <div>{{ currentWeather.clouds }} %</div>
+          <div>{{ currentWeather.clouds }} <small>%</small></div>
         </div>
         <div v-if="currentWeather.uvi !== 0">
           <div><img src="../../assets/forecast-icon/uv.png" alt="" /></div>
@@ -23,21 +23,21 @@
         </div>
         <div>
           <div><img src="../../assets/forecast-icon/rainbow.png" alt="" /></div>
-          <div>{{ currentWeather.visibility }} m</div>
+          <div>{{ currentWeather.visibility }} <small>m</small></div>
         </div>
         <div>
           <div><img src="../../assets/forecast-icon/windsp.png" alt="" /></div>
-          <div>{{ parseFloat(currentWeather.wind_speed).toFixed(1) }} m/s</div>
+          <div>{{ parseFloat(currentWeather.wind_speed).toFixed(1) }} <small>m/s</small></div>
         </div>
         <div v-if="currentWeather.wind_gust">
           <div>
             <img src="../../assets/forecast-icon/strongwind.png" alt="" />
           </div>
-          <div>{{ parseFloat(currentWeather.wind_gust).toFixed(1) }} m/s</div>
+          <div>{{ parseFloat(currentWeather.wind_gust).toFixed(1) }} <small>m/s</small></div>
         </div>
         <div v-if="currentWeather.rain">
           <div><img src="../../assets/forecast-icon/rain.png" alt="" /></div>
-          <div>{{ currentWeather.rain["1h"] }} mm/h</div>
+          <div>{{ currentWeather.rain["1h"] }} <small>mm/h</small></div>
         </div>
       </VueSlickCarousel>
       <!-- </b-row> -->
@@ -63,15 +63,15 @@ export default {
         infinite: false,
         arrows: false,
         speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: 8,
+        slidesToScroll: 8,
         initialSlide: 0,
         responsive: [
           {
             breakpoint: 1024,
             settings: {
-              slidesToShow: 10,
-              slidesToScroll: 6,
+              slidesToShow: 8,
+              slidesToScroll: 8,
               infinite: true,
               dots: true,
             },

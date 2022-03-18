@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img :src="focastIconDisplay" alt="" :width="size" :height="size"/>
+        <img :src="forecastIconDisplay" alt="" :width="size" :height="size"/>
     </div>
 </template>
 
@@ -13,16 +13,16 @@ import cloudyNightClear from '../../assets/forecast-icon/cloudy-night.png';
 import rainy from '../../assets/forecast-icon/rainy.png';
 import {ConvertHour} from '../../helper/utils/converDate';
     export default {
-        name: "FocastIcon",
-        props: ['dataFocast','sunRise','sunSet', 'size'],
+        name: "ForecastIcon",
+        props: ['dataForecast','sunRise','sunSet', 'size'],
         data() {
             return {
                 currentIcon: '',
             }
         },
         computed: {
-            focastIconDisplay(){
-                const {weather, clouds, dt} = this.dataFocast;
+            forecastIconDisplay(){
+                const {weather, clouds, dt} = this.dataForecast;
                 const {main} = weather[0];
                 let isDay = false;
                 if(ConvertHour(dt)>=ConvertHour(this.sunRise) && ConvertHour(dt)<=ConvertHour(this.sunSet)) isDay = true;

@@ -1,31 +1,34 @@
 <template>
   <div class="location-container">
-    <b-col cols="6">
-      <b-row class="search-content" align-h="start" align-v="center">
-        <b-col cols="8">
-          <input
-            type="text"
-            class="location-input"
-            placeholder="Nhập tên thành phố"
-            v-model="searchInput"
-          />
-        </b-col>
-        <b-col cols="4" @click="handleSearchCity"
-          ><button><b-icon icon="search" aria-hidden="true" /></button
-        ></b-col>
-      </b-row>
-    </b-col>
+    <b-row>
+      <b-col cols="6">
+        <b-row class="search-content" align-h="start" align-v="center">
+          <b-col cols="8">
+            <input
+              type="text"
+              class="location-input"
+              placeholder="Nhập tên thành phố"
+              v-model="searchInput"
+            />
+          </b-col>
+          <b-col cols="4" @click="handleSearchCity"
+            ><button><b-icon icon="search" aria-hidden="true" /></button
+          ></b-col>
+        </b-row>
+      </b-col>
 
-    <b-col cols="6">
-      <div class="date-content">
-        <div class="date-item">
-          {{ currentDate }}
-          <span class="calendar-icon" @click="handleShowCalendar"
-            ><b-icon icon="calendar2-date" aria-hidden="true"></b-icon
-          ></span>
+      <b-col cols="6">
+        <div class="date-content">
+          <div class="date-item">
+            {{ currentDate }}
+            <span class="calendar-icon" @click="handleShowCalendar"
+              ><b-icon icon="calendar2-date" aria-hidden="true"></b-icon
+            ></span>
+          </div>
         </div>
-      </div>
-    </b-col>
+      </b-col>
+    </b-row>
+
     <!-- <div
       @click="handleShowCalendar"
       :style="{ zIndex: !!isOpenCalendar ? 10 : -2 }"

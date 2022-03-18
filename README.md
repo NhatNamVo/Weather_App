@@ -1,4 +1,7 @@
 # weather-app
+App is created and developed using Vue 2 and Vuex. It descript cities's forecast infomation full of exactly and fast. Hopefully, It is usefull for you.
+
+For developer, follow the way to setup app below. We will develop the application for commercial version in the near future. Thank you
 
 ## Project setup
 ```

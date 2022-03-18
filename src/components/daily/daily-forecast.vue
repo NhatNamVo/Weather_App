@@ -1,5 +1,5 @@
 <template>
-  <div class="forecast-daily-container" v-if="currentData">
+  <div class="forecast-daily-container" v-if="currentWeather">
     <div class="forecast-title">
       Hôm nay
     </div>
@@ -87,22 +87,22 @@ export default {
     };
   },
   methods: {
-    handleSelectDate(value) {
-      switch (value) {
-        case 1:
-          this.currentDate = value;
-          this.currentData = this.todayData;
-          break;
-        case 2:
-          this.currentDate = value;
-          this.currentData = this.tomorowData;
-          break;
-        case 3:
-          this.currentDate = value;
-          this.currentData = this.afterTomorowData;
-          break;
-      }
-    },
+    // handleSelectDate(value) {
+    //   switch (value) {
+    //     case 1:
+    //       this.currentDate = value;
+    //       this.currentData = this.todayData;
+    //       break;
+    //     case 2:
+    //       this.currentDate = value;
+    //       this.currentData = this.tomorowData;
+    //       break;
+    //     case 3:
+    //       this.currentDate = value;
+    //       this.currentData = this.afterTomorowData;
+    //       break;
+    //   }
+    // },
   },
   computed: {
     ...mapGetters(["todayData", "afterTomorowData", "tomorowData", "currentWeather"]),
@@ -110,26 +110,26 @@ export default {
       search: (state) => state.search,
     }),
   },
-  mounted() {
-    this.currentData = this.todayData;
-  },
-  watch: {
-    todayData(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        switch (this.currentDate) {
-          case 1:
-            this.currentData = this.todayData;
-            break;
-          case 2:
-            this.currentData = this.tomorowData;
-            break;
-          case 3:
-            this.currentData = this.afterTomorowData;
-            break;
-        }
-      }
-    },
-  },
+  // mounted() {
+  //   this.currentData = this.todayData;
+  // },
+  // watch: {
+  //   todayData(newValue, oldValue) {
+  //     if (newValue !== oldValue) {
+  //       switch (this.currentDate) {
+  //         case 1:
+  //           this.currentData = this.todayData;
+  //           break;
+  //         case 2:
+  //           this.currentData = this.tomorowData;
+  //           break;
+  //         case 3:
+  //           this.currentData = this.afterTomorowData;
+  //           break;
+  //       }
+  //     }
+  //   },
+  // },
 };
 </script>
 

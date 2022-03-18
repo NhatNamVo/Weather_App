@@ -28,11 +28,6 @@ export default {
   methods: {
     ...mapActions(["fetchWeatherData"]),
     ...mapMutations(["setCurrentDay"]),
-    resizeHeight(event) {
-      const { outerWidth } = event.target;
-      const eleWidth = 0.5 * outerWidth;
-      this.width = eleWidth;
-    },
     activeTime() {
       const time = moment(new Date()).format("HH:mm:ss");
       const hour = new Date().getHours();
@@ -46,24 +41,6 @@ export default {
       }
       this.currentTime = time;
     },
-    handleShowCalendar(e) {
-      const calendarIcon = e.target.closest("span.calendar-icon");
-      const calendarTable = e.target.closest(".calendar-table");
-      if (calendarIcon) {
-        this.currentCalendarPosition = e.y;
-        this.isOpenCalendar = !this.isOpenCalendar;
-      } else if (calendarTable) {
-        e.stopPropagation();
-      } else {
-        if (this.isOpenCalendar) this.isOpenCalendar = false;
-      }
-    },
-    handleChangeDate(value, e) {
-      console.log(e);
-      if (value.selectedFormatted.includes("/")) {
-        this.currentDate = value.selectedFormatted;
-      }
-    },
   },
   computed: {
     ...mapState(['currentDay']),
@@ -72,7 +49,6 @@ export default {
     this.currentTime = moment(new Date()).format("hh:mm:ss");
     this.currentDate = moment(new Date()).format("DD/MM/YYYY");
     this.currentHour = new Date().getHours();
-    this.width = window.outerWidth * 0.5;
   },
   mounted() {
     this.setTime = setInterval(() => {

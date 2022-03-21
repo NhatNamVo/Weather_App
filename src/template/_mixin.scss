@@ -6,7 +6,7 @@
         }
     }
     @else{       
-        @warn "màn hình chưa khai báos";
+        @warn "màn hình chưa khai báo";
     }
 }
 @mixin minResponsive($screen) {   

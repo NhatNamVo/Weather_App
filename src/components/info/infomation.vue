@@ -58,6 +58,7 @@ export default {
   },
   data() {
     return {
+      // set setting for slick slide
       settings: {
         dots: false,
         infinite: false,

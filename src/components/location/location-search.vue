@@ -66,6 +66,7 @@ export default {
     ...mapActions(["fetchLocationSearch"]),
     ...mapMutations(["setCurrentDay"]),
     handleShowCalendar(e) {
+      // open calendar. this feature is pending processing...
       const calendarIcon = e.target.closest("span.calendar-icon");
       const calendarTable = e.target.closest(".calendar-table");
       if (calendarIcon) {
@@ -99,6 +100,7 @@ export default {
     ]),
   },
   mounted() {
+    // set current Day
     this.currentDate = moment(new Date()).format("DD/MM/YYYY");
     this.setCurrentDay(new Date().getDate());
   },

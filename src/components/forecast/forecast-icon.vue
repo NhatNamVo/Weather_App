@@ -24,12 +24,16 @@ import {ConvertHour} from '../../helper/utils/converDate';
             forecastIconDisplay(){
                 const {weather, clouds, dt} = this.dataForecast;
                 const {main} = weather[0];
+                // check day isDay = true or night isDay = false
                 let isDay = false;
                 if(ConvertHour(dt)>=ConvertHour(this.sunRise) && ConvertHour(dt)<=ConvertHour(this.sunSet)) isDay = true;
+
+                // render forecast type icon
                 switch(main){
                     case "Clear":
                         return isDay?sunnyIcon:cloudyNightClear;
                     case "Clouds":
+                        // check clouds percent
                         if(clouds <=50){
                             return isDay?cloudyDay:cloudyNight;
                         }

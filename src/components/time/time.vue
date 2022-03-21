@@ -29,10 +29,13 @@ export default {
     ...mapActions(["fetchWeatherData"]),
     ...mapMutations(["setCurrentDay"]),
     activeTime() {
+      // render real time
       const time = moment(new Date()).format("HH:mm:ss");
       const hour = new Date().getHours();
+      // check hour before and after changed. Each of hour changed, will call api
       if (hour !== this.currentHour) {
         const day = new Date().getDate();
+        // check day change. if is new day will be set current day.
         if(day !== this.currentDay) {
           this.setCurrentDay(day);
         }
@@ -54,10 +57,8 @@ export default {
     this.setTime = setInterval(() => {
       this.activeTime();
     }, 1000);
-    // window.addEventListener("resize", (e) => this.resizeHeight(e));
   },
   beforeDestroy() {
-    // window.removeEventListener("resize", (e) => this.resizeHeight(e));
     clearInterval(this.setTime);
   },
 };
